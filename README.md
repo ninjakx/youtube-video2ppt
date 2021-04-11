@@ -23,7 +23,15 @@ run `bash vid2ppt.sh`
  
 ![](https://github.com/ninjakx/youtube-video2ppt/blob/ebaf74d3c55192b1c4a832d147fe9fea08fa098b/output.png)
 
+## TO DO:
+
+- [ ] Use Deep Learning based solution to filter out the frames containing only headers.
+- [ ] Automate it to create word doc with image and transcribe audio text below the image (will try to introduce text summarizer).
+- [ ] Make it to work on black screen teaching method.
+- [ ] Using detection model, mask the person to capture only the board and its content to create ppt using Computer Vision.
+
 
 Feel free to contribute.
 
 ## Please consider giving :star: if you like it. 😊
+

@@ -5,6 +5,16 @@ Specifically designed for youtube channel: `StatQuest with Josh Starmer` :heart:
 
 I find his works amazing and I wanted to get the slides out from the video so that I can make a note for revision so I decided to write this script using openCV and shell scripting.
 
+## Install
+### Via compiling from source:
+```console
+$ git clone ggit@github.com:ninjakx/youtube-video2ppt.git
+$ cd youtube-video2ppt
+```
+
+## Usage
+run `bash vid2ppt.sh`
+
 ### Demo:
 
 ![](https://github.com/ninjakx/youtube-video2ppt/blob/5063659b056b9b871402de0c50c0a90bcc9d37b4/demo.gif)
@@ -12,3 +22,8 @@ I find his works amazing and I wanted to get the slides out from the video so th
 ### Result:
  
 ![](https://github.com/ninjakx/youtube-video2ppt/blob/ebaf74d3c55192b1c4a832d147fe9fea08fa098b/output.png)
+
+
+Feel free to contribute.
+
+## Please consider giving :star: if you like it. 😊

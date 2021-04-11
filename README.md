@@ -8,7 +8,7 @@ I find his works amazing and I wanted to get the slides out from the video so th
 ## Install
 ### Via compiling from source:
 ```console
-$ git clone ggit@github.com:ninjakx/youtube-video2ppt.git
+$ git clone git@github.com:ninjakx/youtube-video2ppt.git
 $ cd youtube-video2ppt
 ```
 

@@ -17,7 +17,7 @@ run `bash vid2ppt.sh`
 
 ### Demo:
 
-![](https://github.com/ninjakx/youtube-video2ppt/blob/5063659b056b9b871402de0c50c0a90bcc9d37b4/demo.gif)
+![](https://github.com/ninjakx/youtube-video2ppt/blob/main/out1.png)
 
 ### Result:
  

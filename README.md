@@ -13,7 +13,11 @@ $ cd youtube-video2ppt
 ```
 
 ## Usage
-run `bash vid2ppt.sh`
+Install all the necessary packages by:
+
+`pip install -r requirements.txt`
+
+then run `bash vid2ppt.sh`
 
 ### Demo:
 

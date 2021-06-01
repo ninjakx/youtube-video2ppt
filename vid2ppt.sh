@@ -67,7 +67,7 @@ echo $(red "Enter url:")
 read url
 
 echo $(green "Enter directory to download:")
-read dpath
+read -r dpath
 
 echo $(green "Enter start time to skip the video in s:")
 read stime

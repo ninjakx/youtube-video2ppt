@@ -1,5 +1,7 @@
 # youtube-video2ppt
 
+**Note:** For videos more than 15 min of length you might have more than 200 slides in ppt so some Manual deletion might require :( as per your convenience.
+
 This is a command utility to create ppt from the youtube educational video. 
 Specifically designed for youtube channel: `StatQuest with Josh Starmer` :heart:
 

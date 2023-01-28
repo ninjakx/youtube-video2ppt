@@ -2,6 +2,7 @@
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
+BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 function red {
@@ -14,6 +15,10 @@ function green {
 
 function yellow {
     printf "${YELLOW}$@${NC}\n"
+}
+
+function blue {
+    printf "${BLUE}$@${NC}\n"
 }
 
 # echo $(red apple) $(yellow banana)
@@ -63,28 +68,40 @@ echo -e "\e[0;32m
 
 \e[0m"
 
-echo $(red "Enter url:")
+red "Enter url without any new line:"
 read url
-
-echo $(green "Enter directory to download:")
-read -r dpath
-
-echo $(green "Enter start time to skip the video in s:")
-read stime
 
 # echo "$url"
 url="https:${url##*https:}"
 # url=$(echo "$url" | egrep -o 'https?://[^ ")]+')
 
+allFormat=$(youtube-dl -F "$url")
+echo "$allFormat" 1>&2 
+
+blue "\nEnter format to download video (choose 244 for video only) by default 244:"
+read vformat
+
+green "Enter directory to download:"
+read -r dpath
+
+green "Enter start time to skip the video in s:"
+read stime
+
 title=$(youtube-dl --get-title "$url")
 # echo "$title"
+
 mod_title=$(echo "$title" | tr ' ' '_' | tr ':' '@')
 
-l=$(youtube-dl --verbose --newline -o "$dpath/$mod_title/$title.mp4" "$url" | grep --line-buffered -oP '^\[download\].*?\K([0-9.]+\%|#\d+ of \d)' |
+echo $vformat
+echo "$dpath/$mod_title" 
+
+l=$(youtube-dl -f "${vformat:-244}" --verbose --newline -o "$dpath/$mod_title/$title.mp4" "$url" | grep --line-buffered -oP '^\[download\].*?\K([0-9.]+\%|#\d+ of \d)' |
     zenity --progress \
-  --title="Download" \
+    --width=400 \
+  --title="Downloading youtube video" \
   --text="Downloading..." \
-  --percentage=0 )
+  --percentage=0)
 echo "$l"
 
 python save_yl_slide.py -s $stime -p "$dpath/$mod_title" 
+

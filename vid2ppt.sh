@@ -80,9 +80,11 @@ title=$(youtube-dl --get-title "$url")
 # echo "$title"
 mod_title=$(echo "$title" | tr ' ' '_' | tr ':' '@')
 
-l=$(youtube-dl -o "$dpath/$mod_title/$title.mp4" "$url")
+l=$(youtube-dl --verbose --newline -o "$dpath/$mod_title/$title.mp4" "$url" | grep --line-buffered -oP '^\[download\].*?\K([0-9.]+\%|#\d+ of \d)' |
+    zenity --progress \
+  --title="Download" \
+  --text="Downloading..." \
+  --percentage=0 )
 echo "$l"
 
 python save_yl_slide.py -s $stime -p "$dpath/$mod_title" 
-
-

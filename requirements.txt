@@ -1,9 +1,13 @@
+Brotli==1.0.9
 certifi==2020.12.5
 lxml==4.6.3
+mutagen==1.46.0
 numpy==1.19.3
 opencv-python==4.5.2.52
 Pillow==8.2.0
+pycryptodomex==3.17
 python-pptx==0.6.19
 pytube==10.8.2
+websockets==10.4
 XlsxWriter==1.4.3
-youtube-dl==2021.5.16
+yt-dlp==2023.2.17

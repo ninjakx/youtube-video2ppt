@@ -75,7 +75,7 @@ read url
 url="https:${url##*https:}"
 # url=$(echo "$url" | egrep -o 'https?://[^ ")]+')
 
-allFormat=$(youtube-dl -F "$url")
+allFormat=$(yt-dlp -F "$url")
 echo "$allFormat" 1>&2 
 
 blue "\nEnter format to download video (choose 244 for video only) by default 244:"
@@ -87,7 +87,7 @@ read -r dpath
 green "Enter start time to skip the video in s:"
 read stime
 
-title=$(youtube-dl --get-title "$url")
+title=$(yt-dlp --get-title "$url")
 # echo "$title"
 
 mod_title=$(echo "$title" | tr ' ' '_' | tr ':' '@')
@@ -95,7 +95,7 @@ mod_title=$(echo "$title" | tr ' ' '_' | tr ':' '@')
 echo $vformat
 echo "$dpath/$mod_title" 
 
-l=$(youtube-dl -f "${vformat:-244}" --verbose --newline -o "$dpath/$mod_title/$title.mp4" "$url" | grep --line-buffered -oP '^\[download\].*?\K([0-9.]+\%|#\d+ of \d)' |
+l=$(yt-dlp -f "${vformat:-244}" --verbose --newline -o "$dpath/$mod_title/$title.mp4" "$url" | grep --line-buffered -oP '^\[download\].*?\K([0-9.]+\%|#\d+ of \d)' |
     zenity --progress \
     --width=400 \
   --title="Downloading youtube video" \

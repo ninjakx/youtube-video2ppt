@@ -38,23 +38,26 @@ while success:
     
     if frameId % int(multiplier) == 0 and frameId > int(multiplier)*args['start']:
         current = image
-                
-        prev = cv2.cvtColor(previous, cv2.COLOR_BGR2GRAY)
-        cur = cv2.cvtColor(current, cv2.COLOR_BGR2GRAY)
+        try:
+                    
+            prev = cv2.cvtColor(previous, cv2.COLOR_BGR2GRAY)
+            cur = cv2.cvtColor(current, cv2.COLOR_BGR2GRAY)
 
-        (thresh, im_bw_prev) = cv2.threshold(prev, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-        (thresh, im_bw_cur) = cv2.threshold(cur, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+            (thresh, im_bw_prev) = cv2.threshold(prev, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
+            (thresh, im_bw_cur) = cv2.threshold(cur, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
 
-        # Set up and feed background subtractor (cf. tutorial linked in question)
-        backSub = cv2.createBackgroundSubtractorMOG2()
-        _ = backSub.apply(im_bw_prev)
-        mask = backSub.apply(im_bw_cur)
-        n_white_pix = np.sum(mask == 255)/mask.size
+            # Set up and feed background subtractor (cf. tutorial linked in question)
+            backSub = cv2.createBackgroundSubtractorMOG2()
+            _ = backSub.apply(im_bw_prev)
+            mask = backSub.apply(im_bw_cur)
+            n_white_pix = np.sum(mask == 255)/mask.size
 
-        if n_white_pix > threshold:
-            cv2.imwrite(f"{dir_path}/frame{frameId}.jpg", image)
-        
-        previous = current
+            if n_white_pix > threshold:
+                cv2.imwrite(f"{dir_path}/frame{frameId}.jpg", image)
+            
+            previous = current
+        except:
+            continue
 
 vidcap.release()
 create_ppt(dir_path)

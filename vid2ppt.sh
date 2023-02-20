@@ -95,7 +95,7 @@ mod_title=$(echo "$title" | tr ' ' '_' | tr ':' '@')
 echo $vformat
 echo "$dpath/$mod_title" 
 
-l=$(yt-dlp -f "${vformat:-244}" --verbose --newline -o "$dpath/$mod_title/$title.mp4" "$url" | grep --line-buffered -oP '^\[download\].*?\K([0-9.]+\%|#\d+ of \d)' |
+l=$(yt-dlp --force-ipv4 -f "${vformat:-244}" --verbose --newline -o "$dpath/$mod_title/$title.mp4" "$url" | grep --line-buffered -oP '^\[download\].*?\K([0-9.]+\%|#\d+ of \d)' |
     zenity --progress \
     --width=400 \
   --title="Downloading youtube video" \

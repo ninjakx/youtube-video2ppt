@@ -87,6 +87,9 @@ read -r dpath
 green "Enter start time to skip the video in s:"
 read stime
 
+green "Do you want to create masks to ignore those portions (y/n):"
+read -r fl
+
 title=$(yt-dlp --get-title "$url")
 # echo "$title"
 
@@ -95,13 +98,8 @@ mod_title=$(echo "$title" | tr ' ' '_' | tr ':' '@')
 echo $vformat
 echo "$dpath/$mod_title" 
 
-l=$(yt-dlp --force-ipv4 -f "${vformat:-244}" --verbose --newline -o "$dpath/$mod_title/$title.mp4" "$url" | grep --line-buffered -oP '^\[download\].*?\K([0-9.]+\%|#\d+ of \d)' |
-    zenity --progress \
-    --width=400 \
-  --title="Downloading youtube video" \
-  --text="Downloading..." \
-  --percentage=0)
+l=$(yt-dlp --force-ipv4 -f "${vformat:-244}" --verbose --newline -o "$dpath/$mod_title/$title.mp4" "$url")
 echo "$l"
 
-python save_yl_slide.py -s $stime -p "$dpath/$mod_title" 
+python3 save_yl_slide.py -f $fl -s $stime -p "$dpath/$mod_title"  
 

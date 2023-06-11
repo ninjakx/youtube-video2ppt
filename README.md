@@ -3,9 +3,11 @@
 **Note:** For videos more than 15 min of length you might have more than 200 slides in ppt so some Manual deletion might require :( as per your convenience.
 
 This is a command utility to create ppt from the youtube educational video. 
-Specifically designed for youtube channel: `StatQuest with Josh Starmer` :heart:
+Initally designed for youtube channel: `StatQuest with Josh Starmer` :heart: 
+I find his works amazing and I wanted to get the slides out from the video so that I can make a note for revision so I decided to write this script using openCV and shell scripting. 
+but now expanded to other usecases to capture the slides from the lecture.
 
-I find his works amazing and I wanted to get the slides out from the video so that I can make a note for revision so I decided to write this script using openCV and shell scripting.
+
 
 ## Install
 ### Via compiling from source:
@@ -23,11 +25,20 @@ then run `bash vid2ppt.sh`
 
 ### Demo:
 
+**Initial version:**
 ![](https://github.com/ninjakx/youtube-video2ppt/blob/main/out1.png)
 
+**Newer:**
+
+demo: 
+
+![](https://github.com/ninjakx/youtube-video2ppt/blob/main/vid2ppt-demo.gif)
+
 ### Result:
- 
+
 ![](https://github.com/ninjakx/youtube-video2ppt/blob/ebaf74d3c55192b1c4a832d147fe9fea08fa098b/output.png)
+<img width="1197" alt="image" src="https://github.com/ninjakx/youtube-video2ppt/assets/29797787/957d8eef-f6a0-4ad8-a7b0-3dcd6bbc66d1">
+
 
 ## TO DO:
 

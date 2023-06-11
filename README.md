@@ -7,6 +7,8 @@ Initally designed for youtube channel: `StatQuest with Josh Starmer` :heart:
 I find his works amazing and I wanted to get the slides out from the video so that I can make a note for revision so I decided to write this script using openCV and shell scripting. 
 but now expanded to other usecases to capture the slides from the lecture.
 
+**Note:** It's still having a bug if selected regions are overlapped then overlapped area is shown as white bg in the ppt slides. Need to fix this issue.
+
 
 
 ## Install

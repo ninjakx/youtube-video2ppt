@@ -21,7 +21,7 @@ dir_path = args['path']
 
 #################### Setting up parameters ################
 
-seconds = 1
+seconds = 1 #4 -> if there is scrolling (this is the best we can do to get from the moving scrollable contents like arpit bhayani's videos)
 fps = vidcap.get(cv2.CAP_PROP_FPS) # Gets the frames per second
 multiplier = fps * seconds
 
@@ -33,6 +33,8 @@ fl = (args['flag']=='y')
 while success:
     frameId = int(round(vidcap.get(1))) #current frame number, rounded b/c sometimes you get frame intervals which aren't integers...this adds a little imprecision but is likely good enough
     success, image = vidcap.read()
+    if frameId <= int(multiplier)*args['start']:
+        continue
     if count==0:
         previous = image
         # Mask the area to ignore (because we are checking the changes between two frames), 
@@ -52,7 +54,7 @@ while success:
                 image[int(r[1]):int(r[1]+r[3]),int(r[0]):int(r[0]+r[2])] = (255, 255, 255)
     count =+ 1
     
-    if frameId % int(multiplier) == 0 and frameId > int(multiplier)*args['start']:
+    if frameId % int(multiplier) == 0:
         if fl and image is not None:
             orig_imgs = []
             for i in range(nu): 

@@ -1,6 +1,6 @@
 # youtube-video2ppt
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fninjakx%2Fyoutube-video2ppt%2F&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Hits](https://hitscounter.dev/api/hit?url=https%3A%2F%2Fgithub.com%2Fninjakx%2Fyoutube-video2ppt&label=Count&icon=github&color=%23198754)](https://hits.seeyoufarm.com)
 
 **Note:** For videos more than 15 min of length you might have more than 200 slides in ppt so some Manual deletion might require :( as per your convenience.
 
